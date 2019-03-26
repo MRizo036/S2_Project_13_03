@@ -7,8 +7,8 @@
 
    Crossword Puzzle Script
    
-   Author: 
-   Date:   
+   Author: Maria De Jesus Rizo
+   Date:   3.25.19
    
    Global Variables
    ================
@@ -48,12 +48,45 @@
 
 
 */
+var allLetters;
+var currentLetter;
+var wordLetters;
+var acrossClue;
+var downClue;
+var typeDirection;
+
+window.onload = init;
+
+function init() {
+      allLetters = document.querySelectorAll("table#crossword span");
+      currentLetter = allLetters[0];
+      var acrossID = currentLetter.dataset.clueA;
+      var downID = currentLetter.dataset.clueD;
+      acrossClue = document.getElementById("acrossID");
+      downClue = document.getElementById("downID");
+}
+
+function formatPuzzle(puzzleLetter) {
+      currentLetter = puzzleLetter;
+
+      for (var i = 0; i < allLetters.length; i++) {
+            allLetters[i].style.backgroundColor = "";
+      }
+      acrossClue.style.color = "";
+      downClue.style.color = "";
+
+      if (currentLetter.dataset.clueA != undefined) {
+            acrossClue = document.getElementById("currentLetter.dataset.clueA");
+            acrossClue.style.color = "blue";
+            wordLetters = document.querySelectorAll("currentLetter.dataset.clueA")
+            wordLetters.style.backgroundColor = "rgb(255, 231, 231)";
+      }
+      if (typeDirection = "right") {
+            currentLetter = "rgb()"
+      }
+}
 
 
-
-
-
-   
 
 
 
@@ -62,5 +95,5 @@
 /*====================================================*/
 
 function getChar(keyNum) {
-   return String.fromCharCode(keyNum);
+      return String.fromCharCode(keyNum);
 }
